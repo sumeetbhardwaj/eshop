@@ -3,6 +3,7 @@ const express = require('express');
 require('dotenv').config({path:"./config/config.env"});
 const path = require('path');
 const bodyParser = require('body-parser');
+const commonRouter = require('./router/commonRoute')
 const userRouter = require('./router/userRoute');
 const ejs = require('ejs');
 
@@ -25,8 +26,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-
-app.use(userRouter)
+app.use(commonRouter);
+app.use(userRouter);
 
 const server = app.listen(PORT, () => console.log(`Server run on port ${PORT}`));
 
