@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const commonRouter = require('./router/commonRoute')
 const userRouter = require('./router/userRoute');
+const productsrouter = require('./router/productsRoute')
 const ejs = require('ejs');
 
 const app = express();
@@ -26,9 +27,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-app.use(commonRouter);
-app.use(userRouter);
 
+app.use(userRouter);
+app.use(productsrouter);
+app.use(commonRouter);
 const server = app.listen(PORT, () => console.log(`Server run on port ${PORT}`));
 
 // Unhandled Promise Rejection

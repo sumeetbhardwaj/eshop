@@ -1,7 +1,7 @@
 exports.register = (req, res, next)=>{
-    res.render("register")
+    res.render("register", {title:"Register | E-Shopper"});
 }
 
 exports.login = (req, res, next)=>{
-    res.render("login")
+    res.render("login", {title:"Login | E-Shopper"});
 }
