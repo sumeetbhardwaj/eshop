@@ -2,13 +2,19 @@
 const express = require('express');
 require('dotenv').config({path:"./config/config.env"});
 const path = require('path');
+
 const bodyParser = require('body-parser');
+
 const commonRouter = require('./router/commonRoute')
 const userRouter = require('./router/userRoute');
 const productsrouter = require('./router/productsRoute')
+
 const ejs = require('ejs');
 
+require('./config/db').mongodb();
+
 const app = express();
+
 // // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
     console.log(`Error: ${err.message}`);
